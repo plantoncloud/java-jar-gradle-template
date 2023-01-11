@@ -1,3 +1,4 @@
+version?=local
 .PHONY: build
 build:
 	./gradlew build
@@ -8,4 +9,4 @@ test:
 
 .PHONY: run
 publish:
-	./gradlew publish
+	./gradlew publish -Prevision=$version
