@@ -19,7 +19,7 @@ publishing {
     repositories {
         maven {
             name "artifact-store"
-            url System.getenv("MAVEN_REPO_URL_{{cookiecutter.planton_cloud_product_id | replace(" - ", " _ ")| upper }}")
+            url System.getenv("MAVEN_REPO_URL_{{cookiecutter.planton_cloud_product_id | replace("-", "_")| upper }}")
         }
     }
 }
