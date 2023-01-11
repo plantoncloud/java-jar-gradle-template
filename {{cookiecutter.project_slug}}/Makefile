@@ -9,4 +9,8 @@ test:
 
 .PHONY: run
 publish:
-	./gradlew publish -Prevision=$version
+	./gradlew publish -Prevision=${version}
+
+.PHONY: deploy-local
+deploy-local:
+	./gradlew publishToMavenLocal -Prevision=${version}
