@@ -1,0 +1,10 @@
+.idea
+*.iml
+_devops/ci/.generated.gitlab-ci.yml
+.env
+.env_export
+build
+.gradle
+!/gradle/wrapper/gradle-wrapper.jar
+.planton-build-engine
+bin

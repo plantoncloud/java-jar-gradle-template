@@ -1,0 +1,37 @@
+plugins {
+    id "java-library"
+    id "maven-publish"
+    id "com.google.cloud.artifactregistry.gradle-plugin" version "2.1.5"
+}
+
+group = "com.todo.lib"
+version = "local"
+
+publishing {
+    publications {
+        todoLib(MavenPublication) {
+            if (project.hasProperty("revision")) {
+                version = project.getProperty("revision")
+            }
+            from(components.java)
+        }
+    }
+    repositories {
+        maven {
+            name "artifact-store"
+            url System.getenv("MAVEN_REPO_URL_{{cookiecutter.planton_cloud_product_id | replace(" - ", " _ ")| upper }}")
+        }
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        name = "artifact-store"
+        url = System.getenv("MAVEN_REPO_URL_{{cookiecutter.planton_cloud_product_id | replace(" - ", " _ ")| upper }}")
+    }
+}
+
+dependencies {
+}
